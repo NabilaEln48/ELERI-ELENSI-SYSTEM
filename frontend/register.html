@@ -1,0 +1,1209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Create your ELINSI TECH account — built for tech companies and candidates in the US and Canada.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://elinsi.online/create-account">
+  <link rel="icon" type="image/png" href="/etlogo.png">
+  <link rel="apple-touch-icon" href="/etlogo.png">
+  <title>Create Account — ELINSI TECH</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --ink:       #F0EEE9;
+  --ink2:      #B0BBCC;
+  --ink3:      #6B7A90;
+  --paper:     #0D1117;
+  --paper2:    #131920;
+  --paper3:    #1A2230;
+  --teal:      #00C4C4;
+  --teal-l:    #00E5E5;
+  --teal-xl:   rgba(0,196,196,.18);
+  --teal-xxl:  rgba(0,196,196,.08);
+  --teal-glow: rgba(0,196,196,.18);
+  --blue:      #4D9FFF;
+  --blue-l:    #70B5FF;
+  --blue-xl:   rgba(77,159,255,.18);
+  --blue-xxl:  rgba(77,159,255,.08);
+  --blue-glow: rgba(77,159,255,.18);
+  --green:     #10B981;
+  --green-l:   #34D399;
+  --green-xl:  rgba(16,185,129,.18);
+  --green-xxl: rgba(16,185,129,.08);
+  --green-glow:rgba(16,185,129,.18);
+  --border:    rgba(255,255,255,.07);
+  --border2:   rgba(255,255,255,.12);
+  --radius:    14px;
+  --radius-lg: 22px;
+  --shadow:    0 2px 16px rgba(0,0,0,.4);
+  --shadow2:   0 8px 48px rgba(0,0,0,.5);
+}
+
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--paper);color:var(--ink);
+  font-family:'DM Sans',sans-serif;
+  min-height:100vh;overflow:hidden;cursor:none;
+}
+body::before{
+  content:'';position:fixed;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
+  pointer-events:none;z-index:2000;opacity:.6;
+}
+::-webkit-scrollbar{width:3px;}
+::-webkit-scrollbar-track{background:var(--paper2);}
+::-webkit-scrollbar-thumb{background:var(--teal);border-radius:2px;}
+a{text-decoration:none;color:inherit;}
+button,select,input,textarea,a{font-family:inherit;cursor:none;}
+
+/* CURSOR */
+.cur-dot{width:7px;height:7px;background:var(--teal);border-radius:50%;position:fixed;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);}
+.cur-ring{width:28px;height:28px;border:1.5px solid var(--teal);border-radius:50%;opacity:.4;position:fixed;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .3s,height .3s,opacity .3s;}
+
+/* TOPBAR */
+.topbar{
+  position:fixed;top:0;left:0;right:0;z-index:500;
+  display:grid;grid-template-columns:1fr auto 1fr;align-items:center;
+  padding:0 40px;height:70px;
+  background:rgba(13,17,23,.92);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+}
+.logo{display:flex;align-items:center;gap:10px;justify-self:start;}
+.logo-mark{width:34px;height:34px;background:var(--teal);border-radius:10px;display:flex;align-items:center;justify-content:center;}
+.logo-mark svg{width:17px;height:17px;}
+.logo-txt{font-family:'Fraunces',serif;font-weight:600;font-size:1.05rem;letter-spacing:-.01em;}
+.topbar > .topbar-btn{justify-self:end;}
+.topbar-btn{
+  font-family:'DM Sans',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink2);border:1.5px solid var(--border2);padding:8px 20px;border-radius:100px;
+  background:none;cursor:none;transition:all .2s;
+}
+.topbar-btn:hover{border-color:var(--teal);color:var(--teal);}
+.topbar-btn.primary{background:var(--teal);color:#000;border-color:var(--teal);}
+.topbar-btn.primary:hover{background:var(--teal-l);border-color:var(--teal-l);}
+
+/* PROGRESS BAR — now lives inside .topbar */
+.progress-bar{
+  display:flex;align-items:center;gap:0;
+  transition:opacity .3s;
+}
+.progress-bar.hidden{opacity:0;pointer-events:none;}
+.prog-step{display:flex;align-items:center;gap:6px;font-family:'DM Mono',monospace;font-size:.58rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3);transition:color .3s;}
+.prog-step.active{color:var(--teal);}
+.prog-step.done{color:var(--green);}
+.prog-dot{width:20px;height:20px;border-radius:50%;border:1.5px solid var(--border2);display:flex;align-items:center;justify-content:center;font-size:.55rem;font-weight:700;transition:all .3s;background:transparent;flex-shrink:0;}
+.prog-step.active .prog-dot{border-color:var(--teal);background:var(--teal);color:#fff;}
+.prog-step.done .prog-dot{border-color:var(--green);background:var(--green);color:#fff;}
+.prog-line{width:32px;height:1.5px;background:var(--border2);margin:0 8px;transition:background .3s;flex-shrink:0;}
+.prog-line.done{background:var(--green);}
+
+/* SCREENS */
+.screen{
+  position:fixed;inset:0;
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;pointer-events:none;
+  transition:opacity .4s cubic-bezier(.4,0,.2,1);
+  overflow:hidden;
+}
+.screen.active{opacity:1;pointer-events:all;}
+.screen.scrollable{overflow-y:auto;align-items:flex-start;}
+
+/* BG ARCS */
+.bg-arcs{position:absolute;inset:0;pointer-events:none;overflow:hidden;}
+.arc{position:absolute;border:1px solid rgba(0,122,122,.07);border-radius:50%;}
+.arc1{width:500px;height:500px;top:50%;left:50%;transform:translate(-50%,-50%);}
+.arc2{width:750px;height:750px;top:50%;left:50%;transform:translate(-50%,-50%);}
+.arc3{width:1050px;height:1050px;top:50%;left:50%;transform:translate(-50%,-50%);}
+.arc4{width:1400px;height:1400px;top:50%;left:50%;transform:translate(-50%,-50%);}
+.bg-glow{
+  position:absolute;pointer-events:none;border-radius:50%;
+  background:radial-gradient(circle,var(--teal-glow) 0%,transparent 65%);
+  width:700px;height:700px;top:50%;left:50%;transform:translate(-50%,-50%);
+  animation:glow-breathe 8s ease-in-out infinite;
+}
+@keyframes glow-breathe{0%,100%{transform:translate(-50%,-50%) scale(1);opacity:.7}50%{transform:translate(-50%,-50%) scale(1.1);opacity:1}}
+.dot-accent{position:absolute;border-radius:50%;pointer-events:none;animation:float 6s ease-in-out infinite;}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.bg-glow-fixed{position:fixed;border-radius:50%;pointer-events:none;z-index:0;animation:glow-breathe 9s ease-in-out infinite;}
+
+/* EYEBROW */
+.eyebrow{
+  font-family:'DM Mono',monospace;font-size:.62rem;font-weight:500;
+  letter-spacing:.22em;text-transform:uppercase;color:var(--teal);
+  display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:16px;
+}
+.eyebrow::before,.eyebrow::after{content:'';width:16px;height:1.5px;background:var(--teal);}
+
+/* CARDS / FORMS */
+.auth-card{
+  background:var(--paper2);border:1px solid var(--border2);
+  border-radius:var(--radius-lg);padding:32px;box-shadow:var(--shadow2);
+  position:relative;overflow:hidden;
+}
+.auth-card::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--teal),var(--teal-l));}
+
+.fg{margin-bottom:14px;}
+.fl{display:block;font-family:'DM Mono',monospace;font-size:.62rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--ink3);margin-bottom:6px;}
+.fi{
+  width:100%;padding:11px 14px;background:var(--paper2);border:1.5px solid var(--border2);
+  border-radius:var(--radius);font-family:'DM Sans',sans-serif;font-size:.9rem;color:var(--ink);outline:none;
+  transition:border-color .2s,box-shadow .2s;appearance:none;
+}
+.fi:focus{border-color:var(--teal);box-shadow:0 0 0 3px var(--teal-glow);}
+.fi::placeholder{color:var(--ink3);}
+.fi.blue-f:focus{border-color:var(--blue);box-shadow:0 0 0 3px var(--blue-glow);}
+.fi-sel{
+  background-image:url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L5 5L9 1' stroke='%236B7A90' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 13px center;padding-right:36px;cursor:none;
+}
+.pw-wrap{position:relative;}
+.pw-toggle{position:absolute;right:13px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:none;color:var(--ink3);padding:0;transition:color .2s;}
+.pw-toggle:hover{color:var(--teal);}
+.pw-strength{margin-top:6px;display:flex;gap:4px;}
+.pw-bar{flex:1;height:3px;border-radius:2px;background:var(--border2);transition:background .3s;}
+.pw-bar.weak{background:#DC2626;} .pw-bar.medium{background:var(--teal);} .pw-bar.strong{background:#059669;}
+.pw-hint{font-size:.7rem;font-family:'DM Mono',monospace;color:var(--ink3);margin-top:5px;}
+.fg-row{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-bottom:14px;}
+.fdiv{height:1px;background:var(--border);margin:20px 0;}
+.fsec{font-family:'DM Mono',monospace;font-size:.62rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--ink3);margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid var(--border);}
+.fsec.t{color:var(--teal);border-color:var(--teal-xl);}
+.fsec.b{color:var(--blue);border-color:var(--blue-xl);}
+.ck-row{display:flex;align-items:flex-start;gap:9px;margin-bottom:9px;}
+.ck{width:16px;height:16px;border-radius:4px;border:1.5px solid var(--border2);background:var(--paper3);flex-shrink:0;cursor:none;appearance:none;margin-top:1px;transition:background .15s,border-color .15s;position:relative;}
+.ck.t:checked{background:var(--teal);border-color:var(--teal);}
+.ck.b:checked{background:var(--blue);border-color:var(--blue);}
+.ck:checked::after{content:'';position:absolute;top:2px;left:4px;width:5px;height:8px;border:2px solid #fff;border-top:none;border-left:none;transform:rotate(45deg);}
+.ck-lbl{font-size:.78rem;font-weight:300;color:var(--ink2);line-height:1.5;}
+.ck-lbl a.t{color:var(--teal);}
+.ck-lbl a.b{color:var(--blue);}
+
+.btn-submit,.btn-create{
+  width:100%;padding:13px;font-family:'DM Sans',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  border:none;border-radius:100px;cursor:none;margin-top:4px;
+  display:flex;align-items:center;justify-content:center;gap:9px;
+  transition:background .2s,transform .15s,box-shadow .2s;box-shadow:0 3px 14px rgba(13,17,23,.18);
+}
+.btn-create.t{background:var(--teal);color:#fff;}
+.btn-create.t:hover{background:var(--teal-l);transform:translateY(-1px);box-shadow:0 8px 28px var(--teal-glow);}
+.btn-create.b{background:var(--blue);color:#fff;}
+.btn-create.b:hover{background:var(--blue-l);transform:translateY(-1px);box-shadow:0 8px 28px var(--blue-glow);}
+.switch-row,.signup-switch{text-align:center;margin-top:18px;font-size:.8rem;font-weight:300;color:var(--ink2);}
+.switch-link,.signup-switch a{color:var(--teal);cursor:none;font-weight:500;transition:color .2s;}
+.switch-link:hover,.signup-switch a:hover{color:var(--teal-l);}
+
+/* ═══ SCREEN 1 — PICKER ═══ */
+#screen-picker{background:var(--paper);flex-direction:column;}
+.picker-h1{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(26px,4vw,48px);line-height:1.05;letter-spacing:-.025em;text-align:center;margin-bottom:8px;position:relative;z-index:1;}
+.picker-h1 em{font-style:italic;color:var(--teal);}
+.picker-sub{font-size:.85rem;font-weight:300;color:var(--ink2);text-align:center;margin-bottom:44px;position:relative;z-index:1;}
+.picker-cards{display:grid;grid-template-columns:1fr 1fr;gap:18px;width:100%;max-width:720px;padding:0 24px;position:relative;z-index:1;}
+.picker-card{background:var(--paper2);border:1.5px solid var(--border2);border-radius:var(--radius-lg);padding:36px 30px;cursor:none;position:relative;overflow:hidden;transition:border-color .3s,transform .3s,box-shadow .3s;display:flex;flex-direction:column;align-items:flex-start;}
+.picker-card::before{content:'';position:absolute;inset:0;opacity:0;transition:opacity .4s;pointer-events:none;}
+.picker-card:hover{transform:translateY(-4px);}
+.picker-card.cand::before{background:radial-gradient(ellipse 80% 80% at 20% 110%,rgba(0,122,122,.08) 0%,transparent 60%);}
+.picker-card.cand:hover{border-color:var(--teal);box-shadow:0 16px 56px var(--teal-glow);}
+.picker-card.cand:hover::before{opacity:1;}
+.picker-card.comp::before{background:radial-gradient(ellipse 80% 80% at 80% 110%,rgba(29,109,204,.08) 0%,transparent 60%);}
+.picker-card.comp:hover{border-color:var(--blue);box-shadow:0 16px 56px var(--blue-glow);}
+.picker-card.comp:hover::before{opacity:1;}
+.card-top-bar{height:2px;width:100%;position:absolute;top:0;left:0;right:0;border-radius:2px 2px 0 0;}
+.cand .card-top-bar{background:linear-gradient(90deg,var(--teal),var(--teal-l));}
+.comp .card-top-bar{background:linear-gradient(90deg,var(--blue),var(--blue-l));}
+.pick-icon{font-size:2rem;margin-bottom:18px;display:block;transition:transform .3s;}
+.picker-card:hover .pick-icon{transform:scale(1.1) rotate(-4deg);}
+.pick-tag{display:inline-block;margin-bottom:12px;font-family:'DM Mono',monospace;font-size:.6rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;padding:4px 11px;border-radius:100px;border:1px solid;}
+.cand .pick-tag{background:var(--teal-xxl);color:var(--teal);border-color:var(--teal-xl);}
+.comp .pick-tag{background:var(--blue-xxl);color:var(--blue);border-color:var(--blue-xl);}
+.pick-title{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(18px,2.2vw,24px);line-height:1.1;margin-bottom:8px;}
+.pick-desc{font-size:.8rem;font-weight:300;color:var(--ink2);line-height:1.7;margin-bottom:22px;}
+.pick-checks{list-style:none;margin-bottom:28px;display:flex;flex-direction:column;gap:7px;}
+.pick-check{display:flex;align-items:center;gap:8px;font-size:.78rem;color:var(--ink2);}
+.pick-check::before{content:'✓';font-weight:700;font-size:.65rem;width:17px;height:17px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;}
+.cand .pick-check::before{background:var(--teal-xxl);color:var(--teal);}
+.comp .pick-check::before{background:var(--blue-xxl);color:var(--blue);}
+.pick-cta{display:flex;align-items:center;justify-content:space-between;width:100%;margin-top:auto;}
+.pick-btn{font-family:'DM Sans',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:10px 22px;border-radius:100px;border:none;cursor:none;transition:transform .2s,box-shadow .2s;}
+.cand .pick-btn{background:var(--teal);color:#fff;}
+.cand .pick-btn:hover{box-shadow:0 6px 20px var(--teal-glow);transform:translateY(-1px);}
+.comp .pick-btn{background:var(--blue);color:#fff;}
+.comp .pick-btn:hover{box-shadow:0 6px 20px var(--blue-glow);transform:translateY(-1px);}
+.pick-arrow{transition:transform .2s;}
+.cand .pick-arrow{color:var(--teal);}
+.comp .pick-arrow{color:var(--blue);}
+.picker-card:hover .pick-arrow{transform:translateX(4px);}
+.picker-signin{margin-top:26px;font-size:.8rem;font-weight:300;color:var(--ink2);position:relative;z-index:1;}
+.picker-signin a{color:var(--teal);cursor:none;font-weight:500;}
+
+/* ═══ PLAN SCREENS ═══ */
+.plan-screen{background:var(--paper);flex-direction:column;padding-top:120px;overflow-y:auto;align-items:flex-start;}
+.plan-inner{width:100%;max-width:960px;margin:0 auto;padding:0 24px 60px;}
+.plan-back{display:inline-flex;align-items:center;gap:7px;font-family:'DM Mono',monospace;font-size:.62rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);background:none;border:none;cursor:none;padding:0;margin-bottom:28px;transition:color .2s;}
+.plan-back:hover{color:var(--teal);}
+.plan-back:hover svg{transform:translateX(-3px);}
+.plan-back svg{transition:transform .2s;}
+.plan-header{text-align:center;margin-bottom:40px;}
+.plan-eyebrow{font-family:'DM Mono',monospace;font-size:.62rem;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--teal);display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:14px;}
+.plan-eyebrow::before,.plan-eyebrow::after{content:'';width:16px;height:1.5px;background:var(--teal);}
+.plan-h1{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(28px,4vw,44px);line-height:1.05;letter-spacing:-.025em;margin-bottom:8px;}
+.plan-h1 em{font-style:italic;color:var(--teal);}
+.plan-h1.blue em{color:var(--blue);}
+.plan-sub{font-size:.9rem;font-weight:300;color:var(--ink2);}
+
+/* Plan cards grid */
+.plans-grid{display:grid;gap:20px;}
+.plans-grid.two{grid-template-columns:1fr 1fr;}
+.plans-grid.three{grid-template-columns:1fr 1fr 1fr;}
+
+.plan-card{
+  background:var(--paper2);border:1.5px solid var(--border2);
+  border-radius:var(--radius-lg);padding:32px 28px;
+  position:relative;overflow:hidden;cursor:none;
+  transition:border-color .3s,transform .3s,box-shadow .3s;
+}
+.plan-card:hover{transform:translateY(-4px);}
+.plan-card.popular{border-color:var(--teal);box-shadow:0 12px 48px var(--teal-glow);}
+.plan-card.popular.blue-pop{border-color:var(--blue);box-shadow:0 12px 48px var(--blue-glow);}
+.plan-card.custom-card{background:var(--paper3);color:var(--ink);}
+.plan-card.custom-card:hover{border-color:var(--teal-l);}
+
+.popular-badge{
+  position:absolute;top:18px;right:18px;
+  background:var(--teal);color:#fff;
+  font-family:'DM Mono',monospace;font-size:.55rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;
+  padding:4px 11px;border-radius:100px;
+}
+.popular-badge.blue{background:var(--blue);}
+
+.plan-tier{font-family:'DM Mono',monospace;font-size:.6rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--ink3);margin-bottom:10px;}
+.plan-card.custom-card .plan-tier{color:var(--teal-l);}
+.plan-price{display:flex;align-items:baseline;gap:3px;margin-bottom:4px;}
+.plan-price-sym{font-family:'Fraunces',serif;font-size:1.4rem;font-weight:300;color:var(--ink3);margin-top:8px;}
+.plan-price-num{font-family:'Fraunces',serif;font-size:clamp(40px,5vw,60px);font-weight:600;line-height:1;letter-spacing:-.03em;}
+.plan-price-per{font-size:.78rem;color:var(--ink3);font-weight:300;align-self:flex-end;padding-bottom:8px;}
+.plan-card.custom-card .plan-price-num,.plan-card.custom-card .plan-price-sym{color:var(--paper);}
+.plan-tagline{font-size:.78rem;font-weight:300;color:var(--ink2);margin-bottom:22px;line-height:1.6;}
+.plan-card.custom-card .plan-tagline{color:rgba(250,249,246,.6);}
+.plan-divider{height:1px;background:var(--border);margin-bottom:20px;}
+.plan-card.custom-card .plan-divider{background:rgba(255,255,255,.1);}
+
+.plan-features{list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:28px;}
+.pf{display:flex;align-items:flex-start;gap:9px;font-size:.8rem;color:var(--ink2);line-height:1.5;}
+.pf::before{content:'✓';font-weight:700;font-size:.6rem;width:18px;height:18px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;margin-top:1px;}
+.pf.teal::before{background:var(--teal-xxl);color:var(--teal);}
+.pf.blue::before{background:var(--blue-xxl);color:var(--blue);}
+.pf.green::before{background:var(--green-xxl);color:var(--green);}
+.pf.white::before{background:rgba(255,255,255,.15);color:var(--teal-l);}
+.plan-card.custom-card .pf{color:rgba(250,249,246,.75);}
+
+.plan-select-btn{
+  width:100%;padding:13px;font-family:'DM Sans',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  border-radius:100px;border:none;cursor:none;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  transition:all .2s;
+}
+.plan-select-btn.free-t{background:var(--teal-xxl);color:var(--teal);border:1.5px solid var(--teal-xl);}
+.plan-select-btn.free-t:hover{background:var(--teal);color:#fff;transform:translateY(-1px);box-shadow:0 6px 20px var(--teal-glow);}
+.plan-select-btn.pro-t{background:var(--teal);color:#fff;box-shadow:0 4px 16px var(--teal-glow);}
+.plan-select-btn.pro-t:hover{background:var(--teal-l);transform:translateY(-1px);box-shadow:0 8px 28px var(--teal-glow);}
+.plan-select-btn.free-b{background:var(--blue-xxl);color:var(--blue);border:1.5px solid var(--blue-xl);}
+.plan-select-btn.free-b:hover{background:var(--blue);color:#fff;transform:translateY(-1px);box-shadow:0 6px 20px var(--blue-glow);}
+.plan-select-btn.pro-b{background:var(--blue);color:#fff;box-shadow:0 4px 16px var(--blue-glow);}
+.plan-select-btn.pro-b:hover{background:var(--blue-l);transform:translateY(-1px);box-shadow:0 8px 28px var(--blue-glow);}
+.plan-select-btn.custom-b{background:var(--teal);color:#fff;}
+.plan-select-btn.custom-b:hover{background:var(--teal-l);transform:translateY(-1px);box-shadow:0 8px 28px var(--teal-glow);}
+
+/* ═══ SIGNUP SCREENS ═══ */
+.signup-screen{background:var(--paper);overflow-y:auto;align-items:flex-start;padding:120px 24px 60px;}
+.signup-inner{width:100%;max-width:800px;margin:0 auto;display:grid;grid-template-columns:1fr 1.1fr;gap:60px;align-items:start;padding-top:20px;position:relative;z-index:1;}
+.signup-info{position:sticky;top:20px;}
+.signup-back{display:inline-flex;align-items:center;gap:7px;font-family:'DM Mono',monospace;font-size:.62rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);background:none;border:none;cursor:none;padding:0;margin-bottom:28px;transition:color .2s;}
+.signup-back:hover{color:var(--teal);}
+.signup-back:hover svg{transform:translateX(-3px);}
+.signup-back svg{transition:transform .2s;}
+.role-badge{display:inline-flex;align-items:center;gap:8px;padding:5px 13px;border-radius:100px;border:1px solid;font-family:'DM Mono',monospace;font-size:.62rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;margin-bottom:18px;}
+.rb-cand{background:var(--teal-xxl);color:var(--teal);border-color:var(--teal-xl);}
+.rb-comp{background:var(--blue-xxl);color:var(--blue);border-color:var(--blue-xl);}
+.plan-badge{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:100px;border:1px solid;font-family:'DM Mono',monospace;font-size:.58rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;margin-left:8px;}
+.pb-free{background:var(--paper2);color:var(--ink3);border-color:var(--border2);}
+.pb-pro{background:var(--green-xxl);color:var(--green);border-color:var(--green-xl);}
+.pb-custom{background:#FEF3C7;color:#92400E;border-color:#FDE68A;}
+
+.signup-h1{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(24px,2.8vw,36px);line-height:1.08;letter-spacing:-.02em;margin-bottom:12px;}
+.signup-h1 em{font-style:italic;}
+.signup-h1.cand em{color:var(--teal);}
+.signup-h1.comp em{color:var(--blue);}
+.signup-desc{font-size:.85rem;font-weight:300;color:var(--ink2);line-height:1.75;margin-bottom:24px;}
+.info-checks{list-style:none;display:flex;flex-direction:column;gap:9px;}
+.ic{display:flex;align-items:center;gap:9px;font-size:.8rem;font-weight:300;color:var(--ink2);}
+.ic-dot{width:5px;height:5px;border-radius:50%;flex-shrink:0;}
+.ic-dot.t{background:var(--teal);}
+.ic-dot.b{background:var(--blue);}
+
+.form-panel{background:var(--paper2);border:1px solid var(--border2);border-radius:var(--radius-lg);padding:32px;box-shadow:var(--shadow2);position:relative;}
+.form-panel::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;border-radius:var(--radius-lg) var(--radius-lg) 0 0;}
+.form-panel.cand::after{background:linear-gradient(90deg,var(--teal),var(--teal-l));}
+.form-panel.comp::after{background:linear-gradient(90deg,var(--blue),var(--blue-l));}
+
+.selected-plan-bar{
+  display:flex;align-items:center;justify-content:space-between;
+  background:var(--teal-xxl);border:1px solid var(--teal-xl);
+  border-radius:var(--radius);padding:10px 14px;margin-bottom:18px;
+}
+.selected-plan-bar.blue{background:var(--blue-xxl);border-color:var(--blue-xl);}
+.spb-label{font-family:'DM Mono',monospace;font-size:.6rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3);margin-bottom:2px;}
+.spb-name{font-size:.82rem;font-weight:500;color:var(--ink);}
+.spb-change{font-family:'DM Mono',monospace;font-size:.58rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);cursor:none;background:none;border:none;text-decoration:underline;transition:color .2s;}
+.spb-change.blue{color:var(--blue);}
+.spb-change:hover{color:var(--teal-l);}
+.spb-change.blue:hover{color:var(--blue-l);}
+
+/* ═══ PAYMENT SCREEN ═══ */
+#screen-payment{background:var(--paper);overflow-y:auto;align-items:flex-start;padding:120px 24px 60px;}
+.payment-inner{width:100%;max-width:860px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:40px;position:relative;z-index:1;padding-top:20px;}
+.pay-summary{position:sticky;top:20px;}
+.pay-card{background:var(--paper2);border:1px solid var(--border2);border-radius:var(--radius-lg);padding:28px;box-shadow:var(--shadow);}
+.pay-card-title{font-family:'DM Mono',monospace;font-size:.62rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--ink3);margin-bottom:18px;padding-bottom:10px;border-bottom:1px solid var(--border);}
+.pay-plan-name{font-family:'Fraunces',serif;font-weight:600;font-size:1.5rem;letter-spacing:-.02em;margin-bottom:4px;}
+.pay-plan-sub{font-size:.8rem;font-weight:300;color:var(--ink2);margin-bottom:20px;}
+.pay-line{display:flex;align-items:center;justify-content:space-between;font-size:.82rem;color:var(--ink2);padding:9px 0;border-bottom:1px solid var(--border);}
+.pay-line:last-child{border-bottom:none;}
+.pay-line.total{font-weight:600;color:var(--ink);font-size:.95rem;}
+.pay-line strong{font-family:'Fraunces',serif;font-size:1.1rem;}
+.pay-features-mini{margin-top:18px;padding-top:18px;border-top:1px solid var(--border);}
+.pay-feat{display:flex;align-items:center;gap:8px;font-size:.78rem;color:var(--ink2);margin-bottom:8px;}
+.pay-feat::before{content:'✓';font-weight:700;font-size:.6rem;width:16px;height:16px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;}
+.pay-feat.t::before{background:var(--teal-xxl);color:var(--teal);}
+.pay-feat.b::before{background:var(--blue-xxl);color:var(--blue);}
+.pay-secure{display:flex;align-items:center;gap:8px;margin-top:18px;padding:12px;background:var(--green-xxl);border:1px solid var(--green-xl);border-radius:var(--radius);font-size:.75rem;color:var(--green);font-family:'DM Mono',monospace;font-weight:500;}
+
+.pay-form{background:var(--paper2);border:1px solid var(--border2);border-radius:var(--radius-lg);padding:32px;box-shadow:var(--shadow2);position:relative;overflow:hidden;}
+.pay-form::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;}
+.pay-form.teal::after{background:linear-gradient(90deg,var(--teal),var(--teal-l));}
+.pay-form.blue::after{background:linear-gradient(90deg,var(--blue),var(--blue-l));}
+
+.card-icons{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap;}
+.card-icon{
+  background:var(--paper3);border:1px solid var(--border2);
+  border-radius:6px;padding:5px 10px;
+  font-family:'DM Mono',monospace;font-size:.6rem;font-weight:500;letter-spacing:.06em;color:var(--ink3);
+}
+
+.fi-card{letter-spacing:.1em;}
+.card-row{display:grid;grid-template-columns:1fr 1fr;gap:11px;}
+
+.pay-btn{
+  width:100%;padding:15px;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  border:none;border-radius:100px;cursor:none;margin-top:8px;
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  transition:all .2s;
+}
+.pay-btn.teal-pay{background:var(--teal);color:#fff;box-shadow:0 4px 20px var(--teal-glow);}
+.pay-btn.teal-pay:hover{background:var(--teal-l);transform:translateY(-1px);box-shadow:0 8px 32px var(--teal-glow);}
+.pay-btn.blue-pay{background:var(--blue);color:#fff;box-shadow:0 4px 20px var(--blue-glow);}
+.pay-btn.blue-pay:hover{background:var(--blue-l);transform:translateY(-1px);box-shadow:0 8px 32px var(--blue-glow);}
+.pay-terms{font-size:.72rem;color:var(--ink3);text-align:center;margin-top:12px;line-height:1.6;}
+.pay-terms a{color:var(--teal);cursor:none;}
+
+/* ═══ SUCCESS SCREEN ═══ */
+#screen-success{background:var(--paper);flex-direction:column;}
+.success-wrap{position:relative;z-index:1;text-align:center;max-width:500px;padding:0 24px;}
+.success-icon{font-size:4rem;margin-bottom:24px;animation:pop .5s cubic-bezier(.34,1.56,.64,1) both;}
+@keyframes pop{0%{transform:scale(0)}100%{transform:scale(1)}}
+.success-h1{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(28px,4vw,42px);line-height:1.05;letter-spacing:-.025em;margin-bottom:10px;}
+.success-h1 em{font-style:italic;color:var(--teal);}
+.success-sub{font-size:.9rem;font-weight:300;color:var(--ink2);line-height:1.75;margin-bottom:32px;}
+.success-btn{
+  display:inline-flex;align-items:center;gap:9px;
+  background:var(--teal);color:#fff;font-family:'DM Sans',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  padding:14px 32px;border-radius:100px;border:none;cursor:none;
+  transition:all .2s;box-shadow:0 4px 20px var(--teal-glow);
+}
+.success-btn:hover{background:var(--teal-l);transform:translateY(-1px);box-shadow:0 8px 32px var(--teal-glow);}
+
+/* ═══ SHAKE ═══ */
+@keyframes shake{0%,100%{transform:translateX(0)}20%,60%{transform:translateX(-5px)}40%,80%{transform:translateX(5px)}}
+
+/* ═══ RESPONSIVE ═══ */
+@media(max-width:900px){
+  .plans-grid.three{grid-template-columns:1fr;max-width:420px;margin:0 auto;}
+  .plans-grid.two{grid-template-columns:1fr;max-width:420px;margin:0 auto;}
+  .payment-inner{grid-template-columns:1fr;}
+  .pay-summary{position:static;}
+}
+@media(max-width:768px){
+  .topbar{padding:16px 20px;}
+  .progress-bar{padding:10px 20px;}
+  .picker-cards{grid-template-columns:1fr;max-width:400px;}
+  .signup-inner{grid-template-columns:1fr;gap:28px;}
+  .signup-info{position:static;}
+  .form-panel{padding:22px 18px;}
+  .plan-inner{padding:0 16px 60px;}
+}
+  </style>
+</head>
+<body>
+
+<div class="cur-dot" id="cur-dot"></div>
+<div class="cur-ring" id="cur-ring"></div>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <a href="index.html" class="logo">
+    <img src="etlogo.png" alt="ELINSI TECH" style="height:34px;width:auto;display:block;">
+    <span class="logo-txt">ELINSI</span>
+  </a>
+  <div class="progress-bar" id="progress-bar">
+    <div class="prog-step active" id="ps1">
+      <div class="prog-dot">1</div>
+      <span>Role</span>
+    </div>
+    <div class="prog-line" id="pl1"></div>
+    <div class="prog-step" id="ps2">
+      <div class="prog-dot">2</div>
+      <span>Plan</span>
+    </div>
+    <div class="prog-line" id="pl2"></div>
+    <div class="prog-step" id="ps3">
+      <div class="prog-dot">3</div>
+      <span>Account</span>
+    </div>
+    <div class="prog-line" id="pl3"></div>
+    <div class="prog-step" id="ps4">
+      <div class="prog-dot">4</div>
+      <span>Payment</span>
+    </div>
+  </div>
+  <a href="signin.html" class="topbar-btn">Sign In</a>
+</div>
+
+<!-- ══════════════════════════════
+     SCREEN 1 — ROLE PICKER
+══════════════════════════════ -->
+<div class="screen active" id="screen-picker">
+  <div class="bg-arcs">
+    <div class="arc arc1"></div><div class="arc arc2"></div><div class="arc arc3"></div>
+    <div class="bg-glow" style="background:radial-gradient(circle,rgba(0,122,122,.05) 0%,transparent 65%);"></div>
+  </div>
+  <div class="eyebrow" style="position:relative;z-index:1;">Create Your Account</div>
+  <h1 class="picker-h1">Who are <em>you?</em></h1>
+  <p class="picker-sub">Pick your path — we'll tailor the experience to you.</p>
+  <div class="picker-cards">
+    <div class="picker-card cand" onclick="selectRole('candidate')">
+      <div class="card-top-bar"></div>
+      <div class="pick-tag">I'm looking for work</div>
+      <div class="pick-title">I'm a Candidate</div>
+      <div class="pick-desc">Tech professional looking for your next role in the US or Canadian market.</div>
+      <ul class="pick-checks">
+        <li class="pick-check">Resume scanning</li>
+        <li class="pick-check">AI job matching</li>
+        <li class="pick-check">Interview prep</li>
+        <li class="pick-check">Application tracker</li>
+        <li class="pick-check">Career resources</li>
+      </ul>
+      <div class="pick-cta">
+        <button class="pick-btn">Get Started Free</button>
+        <svg class="pick-arrow" width="18" height="18" viewBox="0 0 20 20" fill="none"><path d="M4 10h12M12 6l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+    </div>
+    <div class="picker-card comp" onclick="selectRole('company')">
+      <div class="card-top-bar"></div>
+      <div class="pick-tag">I'm hiring</div>
+      <div class="pick-title">I'm a Company</div>
+      <div class="pick-desc">Hiring team looking for vetted, pre-screened tech talent — fast.</div>
+      <ul class="pick-checks">
+        <li class="pick-check">Post jobs</li>
+        <li class="pick-check">Matched candidates</li>
+        <li class="pick-check">AI pre-screen</li>
+        <li class="pick-check">Ranked shortlists</li>
+        <li class="pick-check">Analytics &amp; hiring dashboard</li>
+      </ul>
+      <div class="pick-cta">
+        <button class="pick-btn">Start Hiring</button>
+        <svg class="pick-arrow" width="18" height="18" viewBox="0 0 20 20" fill="none"><path d="M4 10h12M12 6l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+    </div>
+  </div>
+  <div class="picker-signin" style="position:relative;z-index:1;">Already have an account? <a href="signin.html">Sign in →</a></div>
+</div>
+
+<!-- ══════════════════════════════
+     SCREEN 2 — CANDIDATE PLANS
+══════════════════════════════ -->
+<div class="screen plan-screen scrollable" id="screen-cand-plans">
+  <div class="bg-glow-fixed" style="width:500px;height:500px;bottom:-120px;left:-120px;background:radial-gradient(circle,rgba(0,122,122,.07) 0%,transparent 65%);"></div>
+  <div class="plan-inner">
+    <button class="plan-back" onclick="goTo('screen-picker')">
+      <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M12 7H2M6 3L2 7l4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Change Role
+    </button>
+    <div class="plan-header">
+      <div class="plan-eyebrow">Candidate Plans</div>
+      <h1 class="plan-h1">Choose your <em>plan.</em></h1>
+      <p class="plan-sub">Start free forever, or go Pro to unlock AI interviews and personalized career coaching.</p>
+    </div>
+    <div class="plans-grid two">
+      <!-- Free -->
+      <div class="plan-card">
+        <div class="plan-tier">Free — Candidate</div>
+        <div class="plan-price">
+          <span class="plan-price-num">Free</span>
+        </div>
+        <p class="plan-tagline">forever — no credit card needed</p>
+        <div class="plan-divider"></div>
+        <ul class="plan-features">
+          <li class="pf teal">Access to Dashboard</li>
+          <li class="pf teal">Resume Scanner</li>
+          <li class="pf teal">Job tracker</li>
+          <li class="pf teal">Skill-Based Matching</li>
+          <li class="pf teal">Be seen by Companies</li>
+        </ul>
+        <button class="plan-select-btn free-t" onclick="selectPlan('candidate','free','Free','0')">
+          Get Free Access
+          <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+      <!-- Pro -->
+      <div class="plan-card popular">
+        <div class="popular-badge">Most Popular</div>
+        <div class="plan-tier">Pro — Candidate</div>
+        <div class="plan-price">
+          <span class="plan-price-sym">$</span>
+          <span class="plan-price-num">60</span>
+          <span class="plan-price-per">/ mo</span>
+        </div>
+        <p class="plan-tagline">everything you need to land the role</p>
+        <div class="plan-divider"></div>
+        <ul class="plan-features">
+          <li class="pf teal">All Free Features</li>
+          <li class="pf teal">Skills Verification</li>
+          <li class="pf teal">AI Mock Interviews</li>
+          <li class="pf teal">Personalized Career Advice</li>
+          <li class="pf teal">Priority Visibility to Recruiters</li>
+        </ul>
+        <button class="plan-select-btn pro-t" onclick="selectPlan('candidate','pro','Pro','60')">
+          Get Pro Access
+          <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════
+     SCREEN 3 — COMPANY PLANS
+══════════════════════════════ -->
+<div class="screen plan-screen scrollable" id="screen-comp-plans">
+  <div class="bg-glow-fixed" style="width:500px;height:500px;top:-120px;right:-120px;background:radial-gradient(circle,rgba(29,109,204,.07) 0%,transparent 65%);"></div>
+  <div class="plan-inner">
+    <button class="plan-back" onclick="goTo('screen-picker')">
+      <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M12 7H2M6 3L2 7l4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Change Role
+    </button>
+    <div class="plan-header">
+      <div class="plan-eyebrow" style="--teal:#1D6DCC;">Company Plans</div>
+      <h1 class="plan-h1 blue">Choose your <em>plan.</em></h1>
+      <p class="plan-sub">Start free to test the engine, then upgrade when you're ready to hire at scale.</p>
+    </div>
+    <div class="plans-grid three">
+      <!-- Free Trial -->
+      <div class="plan-card">
+        <div class="plan-tier">Free Trial</div>
+        <div class="plan-price">
+          <span class="plan-price-num">Free</span>
+        </div>
+        <p class="plan-tagline">test the platform before committing</p>
+        <div class="plan-divider"></div>
+        <ul class="plan-features">
+          <li class="pf blue">Company Profile</li>
+          <li class="pf blue">Post 1 Job</li>
+          <li class="pf blue">See Limited Candidates</li>
+          <li class="pf blue">Basic Engine Scoring</li>
+          <li class="pf blue">Platform Walkthrough</li>
+        </ul>
+        <button class="plan-select-btn free-b" onclick="selectPlan('company','free','Free Trial','0')">
+          Start Free Trial
+          <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+      <!-- Growth -->
+      <div class="plan-card popular blue-pop">
+        <div class="popular-badge blue">Most Popular</div>
+        <div class="plan-tier">Growth Plan</div>
+        <div class="plan-price">
+          <span class="plan-price-sym">$</span>
+          <span class="plan-price-num" style="color:var(--blue);">299</span>
+          <span class="plan-price-per">/ mo</span>
+        </div>
+        <p class="plan-tagline">the plan most hiring teams choose</p>
+        <div class="plan-divider"></div>
+        <ul class="plan-features">
+          <li class="pf blue">Post up to 10 Jobs</li>
+          <li class="pf blue">Full Candidate Pipeline</li>
+          <li class="pf blue">Full Engine Scoring</li>
+          <li class="pf blue">Unlimited Candidate Views</li>
+          <li class="pf blue">2–5 Team Seats</li>
+          <li class="pf blue">Priority Support</li>
+        </ul>
+        <button class="plan-select-btn pro-b" onclick="selectPlan('company','growth','Growth Plan','299')">
+          Start Hiring Now
+          <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+      <!-- Enterprise -->
+      <div class="plan-card custom-card">
+        <div class="plan-tier">Enterprise</div>
+        <div class="plan-price">
+          <span class="plan-price-num" style="font-size:2.2rem;letter-spacing:-.02em;">Custom</span>
+        </div>
+        <p class="plan-tagline">tailored for high-volume teams</p>
+        <div class="plan-divider" style="background:rgba(255,255,255,.1);"></div>
+        <ul class="plan-features">
+          <li class="pf white">10+ Job Postings / Month</li>
+          <li class="pf white">Unlimited Team Seats</li>
+          <li class="pf white">Custom Scoring Rules</li>
+          <li class="pf white">Custom Onboarding</li>
+          <li class="pf white">Dedicated Support Manager</li>
+          <li class="pf white">SLA &amp; Contract Terms</li>
+        </ul>
+        <button class="plan-select-btn custom-b" onclick="selectPlan('company','enterprise','Enterprise','custom')">
+          Contact Sales
+          <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════
+     SCREEN 4 — CANDIDATE REGISTRATION
+══════════════════════════════ -->
+<div class="screen signup-screen" id="screen-candidate">
+  <div class="bg-glow-fixed" style="width:500px;height:500px;bottom:-120px;left:-120px;background:radial-gradient(circle,rgba(0,122,122,.07) 0%,transparent 65%);"></div>
+  <div class="signup-inner">
+    <div class="signup-info">
+      <button class="signup-back" onclick="goTo('screen-cand-plans')">
+        <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M12 7H2M6 3L2 7l4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Change Plan
+      </button>
+      <div style="display:flex;align-items:center;gap:0;flex-wrap:wrap;margin-bottom:18px;">
+        <div class="role-badge rb-cand">Candidate</div>
+        <span class="plan-badge pb-pro" id="cand-plan-badge">Pro</span>
+      </div>
+      <h1 class="signup-h1 cand">Land your next role <em>faster.</em></h1>
+      <p class="signup-desc">Set up your candidate profile in 2 minutes. We'll start matching you to live roles immediately after.</p>
+      <ul class="pick-checks">
+        <li class="pick-check">Resume scanning &amp; AI matching</li>
+        <li class="pick-check">Interview prep tools</li>
+        <li class="pick-check">Application tracker</li>
+        <li class="pick-check">Career resources</li>
+      </ul>
+    </div>
+    <div class="form-panel cand">
+      <div class="selected-plan-bar" id="cand-plan-bar">
+        <div>
+          <div class="spb-label">Selected Plan</div>
+          <div class="spb-name" id="cand-plan-display">Pro — $60/mo</div>
+        </div>
+        <button class="spb-change" onclick="goTo('screen-cand-plans')">Change</button>
+      </div>
+      <div class="fsec t">Basic Info</div>
+      <div class="fg-row">
+        <div class="fg"><label class="fl">First Name</label><input class="fi" type="text" id="cf-first" placeholder="Alex"></div>
+        <div class="fg"><label class="fl">Last Name</label><input class="fi" type="text" id="cf-last" placeholder="Rivera"></div>
+      </div>
+      <div class="fg"><label class="fl">Email Address</label><input class="fi" id="cand-email" type="email" placeholder="alex@example.com"></div>
+      <div class="fg">
+        <label class="fl">Password</label>
+        <div class="pw-wrap">
+          <input class="fi" type="password" id="cand-pw" placeholder="Min. 8 characters" oninput="checkStrength(this,'cand-bars','cand-hint')">
+          <button class="pw-toggle" onclick="togglePw('cand-pw',this)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></button>
+        </div>
+        <div class="pw-strength" id="cand-bars"><div class="pw-bar"></div><div class="pw-bar"></div><div class="pw-bar"></div><div class="pw-bar"></div></div>
+        <div class="pw-hint" id="cand-hint">Use 8+ characters with numbers &amp; symbols</div>
+      </div>
+      <div class="fdiv"></div>
+      <div class="fsec t">Your Job Search</div>
+      <div class="fg-row">
+        <div class="fg">
+          <label class="fl">Position Level</label>
+          <select class="fi fi-sel"><option value="">Select level</option><option>Junior / Entry</option><option>Mid-Level</option><option>Senior</option><option>Lead / Principal</option><option>Manager / Director</option></select>
+        </div>
+        <div class="fg">
+          <label class="fl">Target Market</label>
+          <select class="fi fi-sel"><option value="">Select market</option><option>USA — Remote</option><option>USA — On-site</option><option>Canada — Remote</option><option>Canada — On-site</option><option>US + Canada (Both)</option></select>
+        </div>
+      </div>
+      <div class="fdiv"></div>
+      <div class="ck-row">
+        <input class="ck t" type="checkbox" id="c-terms" checked>
+        <label class="ck-lbl" for="c-terms">I agree to the <a href="#" class="t">Terms of Service</a> and <a href="#" class="t">Privacy Policy</a></label>
+      </div>
+      <div class="ck-row">
+        <input class="ck t" type="checkbox" id="c-alerts" checked>
+        <label class="ck-lbl" for="c-alerts">Send me job alert emails when new matching roles drop</label>
+      </div>
+      <button class="btn-create t" onclick="handleSignup('candidate')">
+        Create Account &amp; Continue
+        <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="signup-switch">Have an account? <a href="signin.html">Sign in →</a></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════
+     SCREEN 5 — COMPANY REGISTRATION
+══════════════════════════════ -->
+<div class="screen signup-screen" id="screen-company">
+  <div class="bg-glow-fixed" style="width:500px;height:500px;top:-120px;right:-120px;background:radial-gradient(circle,rgba(29,109,204,.07) 0%,transparent 65%);"></div>
+  <div class="signup-inner">
+    <div class="signup-info">
+      <button class="signup-back" onclick="goTo('screen-comp-plans')">
+        <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M12 7H2M6 3L2 7l4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Change Plan
+      </button>
+      <div style="display:flex;align-items:center;gap:0;flex-wrap:wrap;margin-bottom:18px;">
+        <div class="role-badge rb-comp">Company</div>
+        <span class="plan-badge pb-pro" id="comp-plan-badge" style="background:var(--blue-xxl);color:var(--blue);border-color:var(--blue-xl);">Growth</span>
+      </div>
+      <h1 class="signup-h1 comp">Find your next hire <em>faster.</em></h1>
+      <p class="signup-desc">Set up your company profile. We'll start matching your open roles to vetted, pre-screened candidates immediately.</p>
+      <ul class="pick-checks">
+        <li class="pick-check">Post jobs &amp; matched candidates</li>
+        <li class="pick-check">AI pre-screen reports</li>
+        <li class="pick-check">Ranked shortlists</li>
+        <li class="pick-check">Analytics &amp; hiring dashboard</li>
+      </ul>
+    </div>
+    <div class="form-panel comp">
+      <div class="selected-plan-bar blue" id="comp-plan-bar">
+        <div>
+          <div class="spb-label">Selected Plan</div>
+          <div class="spb-name" id="comp-plan-display">Growth Plan — $299/mo</div>
+        </div>
+        <button class="spb-change blue" onclick="goTo('screen-comp-plans')">Change</button>
+      </div>
+      <div class="fsec b">Company Details</div>
+      <div class="fg-row">
+        <div class="fg"><label class="fl">Company Name</label><input class="fi blue-f" type="text" placeholder="TechNova Inc."></div>
+        <div class="fg">
+          <label class="fl">Industry</label>
+          <select class="fi fi-sel blue-f"><option value="">Select industry</option><option>Software / SaaS</option><option>Fintech</option><option>Healthcare Tech</option><option>E-Commerce</option><option>AI / ML</option><option>Cybersecurity</option><option>Other</option></select>
+        </div>
+      </div>
+      <div class="fg-row">
+        <div class="fg">
+          <label class="fl">Company Size</label>
+          <select class="fi fi-sel blue-f"><option value="">Select size</option><option>1–10 (Startup)</option><option>11–50</option><option>51–200</option><option>201–1,000</option><option>1,000+ (Enterprise)</option></select>
+        </div>
+        <div class="fg"><label class="fl">HQ Location</label><input class="fi blue-f" type="text" placeholder="Toronto, ON"></div>
+      </div>
+      <div class="fg"><label class="fl">Company Website</label><input class="fi blue-f" type="url" placeholder="https://technova.com"></div>
+      <div class="fdiv"></div>
+      <div class="fsec b">Your Account</div>
+      <div class="fg-row">
+        <div class="fg"><label class="fl">First Name</label><input class="fi blue-f" type="text" placeholder="Jordan"></div>
+        <div class="fg"><label class="fl">Last Name</label><input class="fi blue-f" type="text" placeholder="Park"></div>
+      </div>
+      <div class="fg"><label class="fl">Work Email</label><input class="fi blue-f" id="comp-email" type="email" placeholder="jordan@technova.com"></div>
+      <div class="fg">
+        <label class="fl">Password</label>
+        <div class="pw-wrap">
+          <input class="fi blue-f" type="password" id="co-pw" placeholder="Min. 8 characters" oninput="checkStrength(this,'co-bars','co-hint')">
+          <button class="pw-toggle" onclick="togglePw('co-pw',this)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></button>
+        </div>
+        <div class="pw-strength" id="co-bars"><div class="pw-bar"></div><div class="pw-bar"></div><div class="pw-bar"></div><div class="pw-bar"></div></div>
+        <div class="pw-hint" id="co-hint">Use 8+ characters with numbers &amp; symbols</div>
+      </div>
+      <div class="fdiv"></div>
+      <div class="ck-row">
+        <input class="ck b" type="checkbox" id="co-terms" checked>
+        <label class="ck-lbl" for="co-terms">I agree to the <a href="#" style="color:var(--blue)">Terms of Service</a> and <a href="#" style="color:var(--blue)">Privacy Policy</a></label>
+      </div>
+      <div class="ck-row">
+        <input class="ck b" type="checkbox" id="co-updates" checked>
+        <label class="ck-lbl" for="co-updates">Notify me when we have strong candidate matches for my roles</label>
+      </div>
+      <button class="btn-create b" onclick="handleSignup('company')">
+        Create Account &amp; Continue
+        <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="signup-switch">Have an account? <a href="signin.html">Sign in →</a></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════
+     SCREEN 6 — PAYMENT
+══════════════════════════════ -->
+<div class="screen" id="screen-payment">
+  <div class="bg-glow-fixed" style="width:600px;height:600px;bottom:-150px;right:-150px;background:radial-gradient(circle,rgba(0,122,122,.05) 0%,transparent 65%);"></div>
+  <div class="payment-inner">
+    <!-- Left: Order Summary -->
+    <div class="pay-summary">
+      <button class="plan-back" id="pay-back-btn" onclick="goBackFromPayment()" style="margin-bottom:20px;">
+        <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M12 7H2M6 3L2 7l4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Back
+      </button>
+      <div class="pay-card">
+        <div class="pay-card-title">Order Summary</div>
+        <div class="pay-plan-name" id="pay-plan-name">Pro Plan</div>
+        <div class="pay-plan-sub" id="pay-plan-sub">ELINSI Candidate — Monthly</div>
+        <div class="pay-line"><span>Subtotal</span><span id="pay-subtotal">$60.00</span></div>
+        <div class="pay-line"><span>Tax</span><span>$0.00</span></div>
+        <div class="pay-line total"><span>Total due today</span><strong id="pay-total">$60.00</strong></div>
+        <div class="pay-features-mini" id="pay-features-mini">
+          <div class="pay-feat t">All Free Features included</div>
+          <div class="pay-feat t">Skills Verification</div>
+          <div class="pay-feat t">AI Mock Interviews</div>
+          <div class="pay-feat t">Personalized Career Advice</div>
+        </div>
+        <div class="pay-secure">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Secured by 256-bit SSL encryption
+        </div>
+      </div>
+    </div>
+    <!-- Right: Payment Form -->
+    <div class="pay-form" id="pay-form-panel">
+      <div class="fsec" id="pay-fsec" style="color:var(--teal);border-color:var(--teal-xl);">Payment Details</div>
+      <div class="card-icons">
+        <div class="card-icon">VISA</div>
+        <div class="card-icon">MC</div>
+        <div class="card-icon">AMEX</div>
+        <div class="card-icon">DISCOVER</div>
+      </div>
+      <div class="fg">
+        <label class="fl">Cardholder Name</label>
+        <input class="fi" type="text" id="pay-name" placeholder="Alex Rivera">
+      </div>
+      <div class="fg">
+        <label class="fl">Card Number</label>
+        <input class="fi fi-card" type="text" id="pay-card" placeholder="1234 5678 9012 3456" maxlength="19" oninput="formatCard(this)">
+      </div>
+      <div class="card-row">
+        <div class="fg">
+          <label class="fl">Expiry Date</label>
+          <input class="fi" type="text" id="pay-exp" placeholder="MM / YY" maxlength="7" oninput="formatExpiry(this)">
+        </div>
+        <div class="fg">
+          <label class="fl">CVV</label>
+          <input class="fi" type="password" id="pay-cvv" placeholder="•••" maxlength="4">
+        </div>
+      </div>
+      <div class="fdiv"></div>
+      <div class="fsec" style="border-color:var(--border);">Billing Address</div>
+      <div class="fg">
+        <label class="fl">Country</label>
+        <select class="fi fi-sel">
+          <option value="">Select country</option>
+          <option selected>Canada</option>
+          <option>United States</option>
+          <option>United Kingdom</option>
+          <option>Australia</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="fg-row">
+        <div class="fg"><label class="fl">City</label><input class="fi" type="text" placeholder="Toronto"></div>
+        <div class="fg"><label class="fl">Postal Code</label><input class="fi" type="text" placeholder="M5H 2N2"></div>
+      </div>
+      <button class="pay-btn teal-pay" id="pay-btn" onclick="handlePayment()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Complete Payment
+      </button>
+      <p class="pay-terms">By completing your purchase you agree to our <a href="#">Terms of Service</a>. Subscriptions auto-renew monthly. Cancel anytime.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════
+     SCREEN 7 — SUCCESS
+══════════════════════════════ -->
+<div class="screen" id="screen-success">
+  <div class="bg-arcs">
+    <div class="arc arc1"></div><div class="arc arc2"></div><div class="arc arc3"></div><div class="arc arc4"></div>
+    <div class="bg-glow" style="background:radial-gradient(circle,rgba(5,150,105,.12) 0%,transparent 65%);"></div>
+  </div>
+  <div class="success-wrap">
+    <div class="success-icon">🎉</div>
+    <h1 class="success-h1">You're in, <em>welcome!</em></h1>
+    <p class="success-sub" id="success-sub">Your account is ready. You're being taken to your dashboard now — let's get started.</p>
+    <button class="success-btn" id="success-cta" onclick="redirectToDashboard()">
+      Go to Dashboard
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+  </div>
+</div>
+
+<script>
+/* ─── STATE ─── */
+let state = { role: '', plan: '', planName: '', planPrice: '0' };
+let current = 'screen-picker';
+
+/* ─── CURSOR ─── */
+const curDot = document.getElementById('cur-dot');
+const curRing = document.getElementById('cur-ring');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove', e => { mx=e.clientX; my=e.clientY; });
+(function tick(){
+  curDot.style.left=mx+'px'; curDot.style.top=my+'px';
+  rx+=(mx-rx)*.13; ry+=(my-ry)*.13;
+  curRing.style.left=rx+'px'; curRing.style.top=ry+'px';
+  requestAnimationFrame(tick);
+})();
+document.querySelectorAll('a,button,input,select,textarea').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{curRing.style.width='44px';curRing.style.height='44px';curRing.style.opacity='.7';});
+  el.addEventListener('mouseleave',()=>{curRing.style.width='28px';curRing.style.height='28px';curRing.style.opacity='.4';});
+});
+
+/* ─── NAVIGATION ─── */
+const progressSteps = {
+  'screen-picker': 1,
+  'screen-cand-plans': 2, 'screen-comp-plans': 2,
+  'screen-candidate': 3, 'screen-company': 3,
+  'screen-payment': 4,
+  'screen-success': 4
+};
+
+function goTo(id) {
+  const prev = document.getElementById(current);
+  const next = document.getElementById(id);
+  if(!next) return;
+  prev.classList.remove('active');
+  next.classList.add('active');
+  if(next.classList.contains('scrollable') || next.id === 'screen-payment') {
+    if(next.scrollTop !== undefined) next.scrollTop = 0;
+  }
+  current = id;
+  updateProgress(id);
+}
+
+function updateProgress(id) {
+  const step = progressSteps[id] || 1;
+  for(let i=1;i<=4;i++){
+    const ps = document.getElementById('ps'+i);
+    ps.classList.remove('active','done');
+    if(i < step) ps.classList.add('done');
+    else if(i === step) ps.classList.add('active');
+  }
+  for(let i=1;i<=3;i++){
+    const pl = document.getElementById('pl'+i);
+    pl.classList.toggle('done', i < step);
+  }
+}
+
+/* ─── ROLE SELECTION ─── */
+function selectRole(role) {
+  state.role = role;
+  goTo(role === 'candidate' ? 'screen-cand-plans' : 'screen-comp-plans');
+}
+
+/* ─── PLAN SELECTION ─── */
+function selectPlan(role, plan, planName, planPrice) {
+  state.plan = plan;
+  state.planName = planName;
+  state.planPrice = planPrice;
+
+  if(role === 'candidate') {
+    const badge = document.getElementById('cand-plan-badge');
+    const bar = document.getElementById('cand-plan-display');
+    if(plan === 'free') {
+      badge.textContent = 'Free'; badge.className = 'plan-badge pb-free';
+      bar.textContent = 'Free — Forever';
+    } else {
+      badge.textContent = 'Pro'; badge.className = 'plan-badge pb-pro';
+      bar.textContent = 'Pro — $60/mo';
+    }
+    goTo('screen-candidate');
+  } else {
+    const badge = document.getElementById('comp-plan-badge');
+    const bar = document.getElementById('comp-plan-display');
+    if(plan === 'free') {
+      badge.textContent = 'Free Trial'; badge.className = 'plan-badge pb-free';
+      bar.textContent = 'Free Trial — No charge';
+    } else if(plan === 'growth') {
+      badge.textContent = 'Growth'; badge.style.cssText = 'background:var(--blue-xxl);color:var(--blue);border-color:var(--blue-xl);';
+      bar.textContent = 'Growth Plan — $299/mo';
+    } else {
+      badge.textContent = 'Enterprise'; badge.className = 'plan-badge pb-custom';
+      bar.textContent = 'Enterprise — Custom pricing';
+    }
+    goTo('screen-company');
+  }
+}
+
+/* ─── SIGN UP ─── */
+function handleSignup(type) {
+  const emailId = type === 'candidate' ? 'cand-email' : 'comp-email';
+  const email = document.getElementById(emailId)?.value.trim();
+  const btnSel = type === 'candidate' ? '#screen-candidate .btn-create' : '#screen-company .btn-create';
+  const btn = document.querySelector(btnSel);
+  if(!email || !email.includes('@')) { if(btn) shake(btn); return; }
+
+  if(btn) { btn.textContent = 'Creating account…'; btn.style.opacity = '.7'; }
+
+  // If free plan, skip payment
+  if(state.plan === 'free') {
+    setTimeout(()=>{
+      if(btn){btn.textContent='Create Account & Continue';btn.style.opacity='1';}
+      goToSuccess(type);
+    }, 900);
+    return;
+  }
+
+  // If enterprise, skip payment
+  if(state.plan === 'enterprise') {
+    setTimeout(()=>{
+      if(btn){btn.textContent='Create Account & Continue';btn.style.opacity='1';}
+      goToEnterpriseSuccess();
+    }, 900);
+    return;
+  }
+
+  // Paid plan — go to payment
+  setTimeout(()=>{
+    if(btn){btn.textContent='Create Account & Continue';btn.style.opacity='1';}
+    setupPaymentScreen(type);
+    goTo('screen-payment');
+  }, 900);
+}
+
+function setupPaymentScreen(type) {
+  const isCompany = type === 'company';
+  const panel = document.getElementById('pay-form-panel');
+  const btn = document.getElementById('pay-btn');
+  const fsec = document.getElementById('pay-fsec');
+  const planNameEl = document.getElementById('pay-plan-name');
+  const planSubEl = document.getElementById('pay-plan-sub');
+  const subtotalEl = document.getElementById('pay-subtotal');
+  const totalEl = document.getElementById('pay-total');
+  const featuresEl = document.getElementById('pay-features-mini');
+
+  if(isCompany) {
+    panel.classList.remove('teal'); panel.classList.add('blue');
+    btn.classList.remove('teal-pay'); btn.classList.add('blue-pay');
+    fsec.style.cssText = 'color:var(--blue);border-color:var(--blue-xl);';
+    planNameEl.textContent = 'Growth Plan';
+    planSubEl.textContent = 'ELINSI Company — Monthly';
+    subtotalEl.textContent = '$299.00';
+    totalEl.textContent = '$299.00';
+    featuresEl.innerHTML = `
+      <div class="pay-feat b">Post up to 10 Jobs</div>
+      <div class="pay-feat b">Full Candidate Pipeline</div>
+      <div class="pay-feat b">Full Engine Scoring</div>
+      <div class="pay-feat b">2–5 Team Seats</div>
+    `;
+  } else {
+    panel.classList.remove('blue'); panel.classList.add('teal');
+    btn.classList.remove('blue-pay'); btn.classList.add('teal-pay');
+    fsec.style.cssText = 'color:var(--teal);border-color:var(--teal-xl);';
+    planNameEl.textContent = 'Pro Plan';
+    planSubEl.textContent = 'ELINSI Candidate — Monthly';
+    subtotalEl.textContent = '$60.00';
+    totalEl.textContent = '$60.00';
+    featuresEl.innerHTML = `
+      <div class="pay-feat t">All Free Features included</div>
+      <div class="pay-feat t">Skills Verification</div>
+      <div class="pay-feat t">AI Mock Interviews</div>
+      <div class="pay-feat t">Personalized Career Advice</div>
+    `;
+  }
+}
+
+function goBackFromPayment() {
+  goTo(state.role === 'candidate' ? 'screen-candidate' : 'screen-company');
+}
+
+function handlePayment() {
+  const name = document.getElementById('pay-name').value.trim();
+  const card = document.getElementById('pay-card').value.replace(/\s/g,'');
+  const exp = document.getElementById('pay-exp').value.trim();
+  const cvv = document.getElementById('pay-cvv').value.trim();
+  const btn = document.getElementById('pay-btn');
+
+  if(!name || card.length < 15 || exp.length < 4 || cvv.length < 3) {
+    shake(btn); return;
+  }
+  btn.innerHTML = `<span>Processing…</span>`;
+  btn.style.opacity = '.7';
+  setTimeout(()=>{
+    btn.style.opacity = '1';
+    goToSuccess(state.role);
+  }, 1800);
+}
+
+function goToSuccess(type) {
+  const subEl = document.getElementById('success-sub');
+  const ctaEl = document.getElementById('success-cta');
+  if(type === 'candidate') {
+    subEl.textContent = 'Your candidate account is ready. Heading to your dashboard — let\'s find your next role.';
+    ctaEl.onclick = ()=>window.location.href='candidate.html';
+  } else {
+    subEl.textContent = 'Your company account is live. Taking you to your hiring dashboard — let\'s find great people.';
+    ctaEl.onclick = ()=>window.location.href='Company.html';
+  }
+  goTo('screen-success');
+}
+
+function goToEnterpriseSuccess() {
+  const subEl = document.getElementById('success-sub');
+  subEl.textContent = 'Thanks for your interest! Our enterprise team will reach out within 24 hours to set up your custom plan.';
+  goTo('screen-success');
+}
+
+function redirectToDashboard() {
+  if(state.role === 'candidate') window.location.href = 'candidate.html';
+  else window.location.href = 'Company.html';
+}
+
+/* ─── HELPERS ─── */
+function togglePw(id, btn) {
+  const inp = document.getElementById(id);
+  const isText = inp.type==='text';
+  inp.type = isText ? 'password' : 'text';
+  btn.innerHTML = isText
+    ? `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>`
+    : `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>`;
+}
+
+function checkStrength(inp, barsId, hintId) {
+  const v = inp.value;
+  const bars = document.querySelectorAll('#'+barsId+' .pw-bar');
+  const hint = document.getElementById(hintId);
+  let s=0;
+  if(v.length>=8)s++;if(/[A-Z]/.test(v))s++;if(/[0-9]/.test(v))s++;if(/[^A-Za-z0-9]/.test(v))s++;
+  bars.forEach((b,i)=>{
+    b.classList.remove('weak','medium','strong');
+    if(i<s){b.classList.add(s<=1?'weak':s<=2?'medium':'strong');}
+  });
+  const lbl=['','Weak — add uppercase & numbers','Fair — add symbols','Strong','Very strong ✓'];
+  hint.textContent = lbl[s]||'Use 8+ characters with numbers & symbols';
+  hint.style.color = s>=3?'#059669':s>=2?'var(--teal)':'#DC2626';
+  if(!v){hint.textContent='Use 8+ characters with numbers & symbols';hint.style.color='';}
+}
+
+function formatCard(inp) {
+  let v = inp.value.replace(/\D/g,'').substring(0,16);
+  inp.value = v.replace(/(.{4})/g,'$1 ').trim();
+}
+
+function formatExpiry(inp) {
+  let v = inp.value.replace(/\D/g,'').substring(0,4);
+  if(v.length>=2) v = v.substring(0,2)+' / '+v.substring(2);
+  inp.value = v;
+}
+
+function shake(el) {
+  el.style.animation='shake .4s ease';
+  el.addEventListener('animationend',()=>el.style.animation='',{once:true});
+}
+</script>
+</body>
+</html>
