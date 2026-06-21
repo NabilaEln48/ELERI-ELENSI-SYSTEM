@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  
+  <title>Register — Elinsi Tech</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --teal:      #1a8a82;
+      --teal-dark: #136e68;
+      --teal-lt:   #e6f5f4;
+      --ink:       #00f4cf;
+      --muted:     #7a8e8c;
+      --border:    #d4e0df;
+      --bg:        #1f2524;
+      --card-bg:   #000000;
+      --shadow:    rgba(20, 60, 55, 0.10);
+    }
+
+    body {
+      background: var(--bg);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'DM Sans', sans-serif;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* ── concentric rings ── */
+    .rings {
+      position: fixed;
+      top: 50%; left: 50%;
+      transform: translate(-50%,-50%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .rings span {
+      position: absolute;
+      border-radius: 50%;
+      top: 50%; left: 50%;
+      transform: translate(-50%,-50%);
+    }
+    .rings span:nth-child(1) { width: 400px;  height: 400px;  border: 1px solid rgba(26,138,130,.10); }
+    .rings span:nth-child(2) { width: 600px;  height: 600px;  border: 1px solid rgba(26,138,130,.07); }
+    .rings span:nth-child(3) { width: 820px;  height: 820px;  border: 1px solid rgba(26,138,130,.05); }
+    .rings span:nth-child(4) { width: 1060px; height: 1060px; border: 1px solid rgba(26,138,130,.03); }
+
+    /* ── nav links ── */
+    .back-link, .home-link {
+      position: fixed;
+      top: 22px;
+      font-size: .78rem;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--teal);
+      text-decoration: none;
+      transition: opacity .2s;
+      z-index: 10;
+    }
+    .back-link { left: 28px; }
+    .home-link  { right: 28px; }
+    .back-link:hover, .home-link:hover { opacity: .7; }
+
+    /* ── wrapper ── */
+    .wrapper {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: min(820px, 94vw);
+      animation: rise .55s cubic-bezier(.22,1,.36,1) both;
+    }
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── eyebrow ── */
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 16px;
+    }
+    .eyebrow::before, .eyebrow::after {
+      content: '';
+      flex: 1;
+      max-width: 40px;
+      height: 1px;
+      background: var(--teal);
+      opacity: .5;
+    }
+
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.1rem;
+      font-weight: 400;
+      color: var(--ink);
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    h1 em { font-style: italic; color: var(--teal); }
+
+    .subtitle {
+      text-align: center;
+      font-size: .92rem;
+      color: var(--muted);
+      margin-bottom: 44px;
+    }
+
+    /* ── cards row ── */
+    .cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      width: 100%;
+    }
+    @media (max-width: 580px) {
+      .cards { grid-template-columns: 1fr; }
+    }
+
+    /* ── individual card ── */
+    .choice-card {
+      background: var(--card-bg);
+      border-radius: 20px;
+      padding: 44px 36px 40px;
+      border-top: 3px solid var(--teal);
+      box-shadow:
+        0 2px 0 var(--border),
+        0 10px 40px var(--shadow),
+        0 2px 8px rgba(0,0,0,.04);
+      cursor: pointer;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      transition: transform .25s cubic-bezier(.22,1,.36,1),
+                  box-shadow .25s,
+                  border-color .25s;
+      position: relative;
+      overflow: hidden;
+    }
+    .choice-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(26,138,130,.05) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity .3s;
+    }
+    .choice-card:hover {
+      transform: translateY(-5px);
+      box-shadow:
+        0 2px 0 var(--teal),
+        0 20px 56px rgba(26,138,130,.18),
+        0 4px 12px rgba(0,0,0,.06);
+      border-color: var(--teal-dark);
+    }
+    .choice-card:hover::after { opacity: 1; }
+
+    /* icon circle */
+    .icon-wrap {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: var(--teal-lt);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background .25s, transform .25s;
+    }
+    .choice-card:hover .icon-wrap {
+      background: var(--teal);
+      transform: scale(1.08);
+    }
+    .icon-wrap svg { transition: stroke .25s; }
+    .choice-card:hover .icon-wrap svg { stroke: #fff; }
+
+    .card-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.55rem;
+      color: var(--ink);
+      text-align: center;
+    }
+    .card-desc {
+      font-size: .88rem;
+      color: var(--muted);
+      text-align: center;
+      line-height: 1.6;
+    }
+
+    .card-cta {
+      margin-top: 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: .8rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--teal);
+      transition: gap .2s;
+    }
+    .choice-card:hover .card-cta { gap: 12px; }
+
+    /* ── footer ── */
+    .page-footer {
+      margin-top: 36px;
+      font-size: .88rem;
+      color: var(--muted);
+      text-align: center;
+    }
+    .page-footer a {
+      color: var(--teal);
+      font-weight: 600;
+      text-decoration: none;
+      transition: opacity .2s;
+    }
+    .page-footer a:hover { opacity: .75; }
+  </style>
+</head>
+<body>
+
+  <div class="rings">
+    <span></span><span></span><span></span><span></span>
+  </div>
+
+  <a class="back-link" href="login.html">&#8592; Back</a>
+  <a class="home-link" href="index.html">ELINSI Home</a>
+
+  <div class="wrapper">
+    <div class="eyebrow">Get Started</div>
+    <h1>Join <em>ELINSI.</em></h1>
+    <p class="subtitle">Choose your account type to get started.</p>
+
+    <div class="cards">
+
+      <!-- Company card -->
+      <a class="choice-card" href="company.html">
+        <div class="icon-wrap">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none"
+               viewBox="0 0 24 24" stroke="var(--teal)" stroke-width="1.7"
+               stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 21h18M3 7l9-4 9 4M4 7v14M20 7v14M8 10h2m-2 4h2m4-4h2m-2 4h2"/>
+          </svg>
+        </div>
+        <div class="card-title">Company</div>
+        <p class="card-desc">Post jobs, search top talent, and streamline your entire hiring pipeline.</p>
+        <span class="card-cta">Create company account →</span>
+      </a>
+
+      <!-- Candidate card -->
+      <a class="choice-card" href="candidate.html">
+        <div class="icon-wrap">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none"
+               viewBox="0 0 24 24" stroke="var(--teal)" stroke-width="1.7"
+               stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="8" r="4"/>
+            <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+          </svg>
+        </div>
+        <div class="card-title">Candidate</div>
+        <p class="card-desc">Build your profile, showcase your skills, and discover your next opportunity.</p>
+        <span class="card-cta">Create candidate account →</span>
+      </a>
+
+    </div>
+
+    <p class="page-footer">Already have an account? <a href="signin.html">Sign in →</a></p>
+  </div>
+
+</body>
+</html>
